@@ -41,6 +41,13 @@ class DetailViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
 
+  @IBAction func changeDetail(sender: AnyObject) {
+    if sender === nameField {
+      detailItem?.name = nameField.text
+    } else if sender === locationField {
+      detailItem?.location = locationField.text
+    }
+  }
 
 }
 

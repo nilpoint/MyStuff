@@ -45,10 +45,12 @@ class MasterViewController: UITableViewController {
     // Dispose of any resources that can be recreated.
   }
 
+  var itemNumber = 0
   func insertNewObject(sender: AnyObject) {
-//    things.insert(NSDate(), atIndex: 0)
-//    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-//    self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+    let newThing = MyWhatsit(name: "My Item \(++itemNumber)")
+    things.insert(newThing, atIndex: 0)
+    let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+    self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
   }
 
   // MARK: - Segues
