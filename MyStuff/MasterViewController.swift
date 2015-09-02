@@ -18,6 +18,12 @@ class MasterViewController: UITableViewController {
     MyWhatsit(name: "Sad Robot USB hub", location: "office"),
     MyWhatsit(name: "Solar Powered Bunny", location: "office")
   ]
+  
+  // The special deinitializer function is called just before the object is destroyed
+  deinit {
+    // To unregister when your object should no longer receive them.
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+  }
 
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -37,6 +43,9 @@ class MasterViewController: UITableViewController {
     if let split = self.splitViewController {
         let controllers = split.viewControllers
         self.detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
+    
+      let center = NSNotificationCenter.defaultCenter()
+      center.addObserver(self, selector: "whatsitDidChange:", name: WhatsitDidChangeNotification, object: nil)
     }
   }
 
@@ -51,6 +60,17 @@ class MasterViewController: UITableViewController {
     things.insert(newThing, atIndex: 0)
     let indexPath = NSIndexPath(forRow: 0, inSection: 0)
     self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+  }
+  
+  func whatsitDidChange(notification: NSNotification) {
+    if let changeThing = notification.object as? MyWhatsit {
+      for(index, thing) in enumerate(things) {
+        if thing === changeThing {
+          let path = NSIndexPath(forItem: index, inSection: 0)
+          tableView.reloadRowsAtIndexPaths([path], withRowAnimation: .None)
+        }
+      }
+    }
   }
 
   // MARK: - Segues
