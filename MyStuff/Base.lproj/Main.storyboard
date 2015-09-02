@@ -49,7 +49,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="changeDetail:" destination="JEX-9P-axG" eventType="editingDidEnd" id="nDf-qD-Hwa"/>
+                                    <action selector="changeDetail:" destination="JEX-9P-axG" eventType="editingChanged" id="HfC-S3-766"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TA0-eX-f2S">
@@ -57,7 +57,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="changeDetail:" destination="JEX-9P-axG" eventType="editingDidEnd" id="ZSS-b2-mak"/>
+                                    <action selector="changeDetail:" destination="JEX-9P-axG" eventType="editingChanged" id="bd4-ZZ-ngU"/>
                                 </connections>
                             </textField>
                         </subviews>
