@@ -13,6 +13,10 @@ class DetailViewController: UIViewController {
   @IBOutlet var nameField: UITextField!
   @IBOutlet var locationField: UITextField!
   @IBOutlet var imageView: UIImageView!
+  
+  @IBAction func choosePicture(_: AnyObject!) {
+    
+  }
 
   var detailItem: MyWhatsit? {
     didSet {

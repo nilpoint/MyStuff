@@ -68,10 +68,14 @@
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="Yx6-9D-djD">
                                 <rect key="frame" x="185" y="235" width="230" height="230"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="230" id="LXL-Ir-QhU"/>
                                     <constraint firstAttribute="height" constant="230" id="ilf-nl-h80"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="FkE-Rv-RIc" appends="YES" id="rxD-Cc-hCV"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -101,6 +105,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="FkE-Rv-RIc">
+                    <connections>
+                        <action selector="choosePicture:" destination="JEX-9P-axG" id="J8g-JZ-a5U"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="709" y="129"/>
         </scene>
