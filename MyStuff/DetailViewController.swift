@@ -20,6 +20,9 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
       return
     }
     
+    // Dismiss the keyboard first when clicking on the image view
+    dismissKeyboard(self)
+    
     let hasPhotos = UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary)
     let hasCamera = UIImagePickerController.isSourceTypeAvailable(.Camera)
     
@@ -58,6 +61,15 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     default:
       break
     }
+  }
+  
+  @IBAction func dismissKeyboard(_: AnyObject!) {
+    // This simple method calls the endEditing(_:) function on the root view of your interface. 
+    // The endEditing(_:) function is ready-built to solve this problem; it searches through 
+    // the view’s subviews looking for an editable object that’s currently being edited. 
+    // If it finds one, it asks the object to resign its first responder status, ending the 
+    // editing session, and retracting the keyboard.
+    view.endEditing(false)
   }
 
   var detailItem: MyWhatsit? {
