@@ -102,6 +102,13 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     imagePicker.sourceType = source
     imagePicker.mediaTypes = [kUTTypeImage as String]
     imagePicker.delegate = self
+    if source == .PhotoLibrary {
+      imagePicker.modalPresentationStyle = .Popover
+    }
+    if let popover = imagePicker.popoverPresentationController {
+      popover.sourceView = imageView
+      popover.sourceRect = imageView.bounds
+    }
     presentViewController(imagePicker, animated: true, completion: nil)
   }
   
