@@ -138,5 +138,8 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     dismissViewControllerAnimated(true, completion: nil)
   }
 
+  func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+    dismissViewControllerAnimated(true, completion: nil)
+  }
 }
 
