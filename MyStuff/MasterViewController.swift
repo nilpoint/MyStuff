@@ -105,6 +105,7 @@ class MasterViewController: UITableViewController {
     let thing = things[indexPath.row] as MyWhatsit
     cell.textLabel?.text = thing.name
     cell.detailTextLabel?.text = thing.location
+    cell.imageView?.image = thing.viewImage
     return cell
   }
 

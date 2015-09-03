@@ -32,8 +32,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pW4-bs-QSL">
-                                <rect key="frame" x="16" y="72" width="47" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pW4-bs-QSL">
+                                <rect key="frame" x="16" y="72" width="46" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -60,17 +60,34 @@
                                     <action selector="changeDetail:" destination="JEX-9P-axG" eventType="editingChanged" id="bd4-ZZ-ngU"/>
                                 </connections>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Picture" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucF-1l-g5R">
+                                <rect key="frame" x="16" y="206" width="54" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="Yx6-9D-djD">
+                                <rect key="frame" x="185" y="235" width="230" height="230"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="LXL-Ir-QhU"/>
+                                    <constraint firstAttribute="height" constant="230" id="ilf-nl-h80"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Yx6-9D-djD" firstAttribute="top" secondItem="ucF-1l-g5R" secondAttribute="bottom" constant="8" id="7Gy-ZP-r2e"/>
                             <constraint firstItem="TA0-eX-f2S" firstAttribute="top" secondItem="pW4-bs-QSL" secondAttribute="bottom" constant="8" id="AKO-f9-9o9"/>
                             <constraint firstItem="79U-Gx-rn5" firstAttribute="top" secondItem="FUu-WD-ySq" secondAttribute="bottom" constant="8" id="BH8-8Y-yMc"/>
+                            <constraint firstItem="ucF-1l-g5R" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="Db2-vb-hhJ"/>
                             <constraint firstItem="pW4-bs-QSL" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="8" id="GUk-pC-5AH"/>
                             <constraint firstItem="FUu-WD-ySq" firstAttribute="top" secondItem="TA0-eX-f2S" secondAttribute="bottom" constant="8" id="MQC-tp-olY"/>
+                            <constraint firstItem="ucF-1l-g5R" firstAttribute="top" secondItem="79U-Gx-rn5" secondAttribute="bottom" constant="8" id="U59-Mt-wwC"/>
                             <constraint firstItem="79U-Gx-rn5" firstAttribute="trailing" secondItem="svH-Pt-448" secondAttribute="trailingMargin" id="g4t-BH-fCB"/>
                             <constraint firstItem="TA0-eX-f2S" firstAttribute="trailing" secondItem="svH-Pt-448" secondAttribute="trailingMargin" id="kBW-mb-qjb"/>
                             <constraint firstItem="FUu-WD-ySq" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="q6e-tR-LL9"/>
                             <constraint firstItem="79U-Gx-rn5" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="tvu-Hz-EZG"/>
+                            <constraint firstAttribute="centerX" secondItem="Yx6-9D-djD" secondAttribute="centerX" id="uaO-Hb-cYY"/>
                             <constraint firstItem="TA0-eX-f2S" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="vAM-9R-Z5E"/>
                             <constraint firstItem="pW4-bs-QSL" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" id="vYo-Oc-wTH"/>
                         </constraints>
@@ -78,6 +95,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
+                        <outlet property="imageView" destination="Yx6-9D-djD" id="7ek-EV-bbk"/>
                         <outlet property="locationField" destination="79U-Gx-rn5" id="46T-rG-UGj"/>
                         <outlet property="nameField" destination="TA0-eX-f2S" id="tc5-3K-meP"/>
                     </connections>
@@ -165,6 +183,9 @@
             <point key="canvasLocation" x="-45" y="129"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera" width="512" height="512"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>

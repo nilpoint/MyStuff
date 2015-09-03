@@ -12,6 +12,7 @@ class DetailViewController: UIViewController {
 
   @IBOutlet var nameField: UITextField!
   @IBOutlet var locationField: UITextField!
+  @IBOutlet var imageView: UIImageView!
 
   var detailItem: MyWhatsit? {
     didSet {
@@ -26,6 +27,7 @@ class DetailViewController: UIViewController {
         if nameField != nil {
             nameField.text = detail.name
           locationField.text = detail.location
+          imageView.image = detail.viewImage
         }
     }
   }
