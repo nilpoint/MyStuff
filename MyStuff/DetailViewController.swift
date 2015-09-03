@@ -115,6 +115,24 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
       UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
     }
     
+    // Crop the image
+    let cgImage = image.CGImage
+    let height = CGImageGetHeight(cgImage)
+    let width = CGImageGetWidth(cgImage)
+    var crop = CGRect(x: 0, y: 0, width: width, height: height)
+    if height > width {
+      crop.size.height = crop.size.width
+      crop.origin.y = CGFloat((height - width)/2)
+    } else {
+      crop.size.width = crop.size.height
+      crop.origin.x = CGFloat((width - height)/2)
+    }
+    let croppedImage = CGImageCreateWithImageInRect(cgImage, crop)
+    
+    // Scale the image down
+    let maxImageDimension: CGFloat = 640.0
+    image = UIImage(CGImage: croppedImage, scale: max(crop.height/maxImageDimension, 1.0), orientation: image.imageOrientation)
+    
     detailItem?.image = image
     imageView.image = image
     dismissViewControllerAnimated(true, completion: nil)
